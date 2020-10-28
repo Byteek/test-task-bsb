@@ -28,8 +28,8 @@ public class PaymentCardController {
                                       @RequestParam String currency) {
         Pageable pageable = PageRequest.of(page, size, Sort.Direction.ASC, "linkedAppUserNumberPhone");
         Page<PaymentCard> resultPage = paymentCardService.findPaginatePaymentCardByCurrencyAndCardType(currency, cardType, pageable);
-        List<String> phoneNumbers = new ArrayList<String>(size);
-        resultPage.getContent().stream()
+        List<String> phoneNumbers = new ArrayList<>(size);
+        resultPage.getContent()
                 .forEach(
                         paymentCard -> phoneNumbers.add(paymentCard.getLinkedAppUserNumberPhone()));
         return phoneNumbers;
