@@ -28,7 +28,7 @@ public class PaymentCardService {
         paymentCard.setType(paymentCard.getType().strip().toUpperCase());
         paymentCard.setCurrency(paymentCard.getCurrency().strip().toUpperCase());
 
-        AppClient appClient = appClientService.updateAppUserStatus(paymentCard.getLinkedAppClientPhoneNumber(), paymentCard.getType());
+        AppClient appClient = appClientService.updateAppClientStatus(paymentCard.getLinkedAppClientPhoneNumber(), paymentCard.getType());
         paymentCard.setLinkedAppClientPhoneNumber(appClient.getPhoneNumber());
         paymentCardRepository.save(paymentCard);
         return true;

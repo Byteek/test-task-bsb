@@ -17,20 +17,20 @@ public class AppClientService {
     AppClientRepository appClientRepository;
 
 
-    public boolean createNewAppUser(AppClient appClient) {
+    public boolean createNewAppClient(AppClient appClient) {
 
-        logger.info("Create new user:{}", appClient);
+        logger.info("Create new client:{}", appClient);
 
         if (appClientRepository.findById(appClient.getId()).isPresent()) {
-            logger.info("This user exists");
+            logger.info("This client exists");
             return false;
         }
-        if (appClientRepository.findAppUserByEmail(appClient.getEmail()) != null) {
-            logger.info("This user with this email exists");
+        if (appClientRepository.findAppClientByEmail(appClient.getEmail()) != null) {
+            logger.info("This client with this email exists");
             return false;
         }
-        if (appClientRepository.findAppUserByPhoneNumber(appClient.getPhoneNumber()) != null) {
-            logger.info("This user with this phone number exists");
+        if (appClientRepository.findAppClientByPhoneNumber(appClient.getPhoneNumber()) != null) {
+            logger.info("This client with this phone number exists");
             return false;
         }
         appClient.setStatus(-1);
@@ -38,27 +38,27 @@ public class AppClientService {
         return true;
     }
 
-    public AppClient updateAppUserStatus(String searchString, String type) {
+    public AppClient updateAppClientStatus(String searchString, String type) {
 
-        AppClient appClient = appClientRepository.findAppUserById(searchString);
-        if (appClient == null) appClient = appClientRepository.findAppUserByEmail(searchString);
-        if (appClient == null) appClient = appClientRepository.findAppUserByPhoneNumber(searchString);
+        AppClient appClient = appClientRepository.findAppClientById(searchString);
+        if (appClient == null) appClient = appClientRepository.findAppClientByEmail(searchString);
+        if (appClient == null) appClient = appClientRepository.findAppClientByPhoneNumber(searchString);
 
         switch (type) {
             case "PLATINUM": {
-                setStatusAppUser(appClient, Types.PLATINUM.ordinal());
+                setStatusAppClient(appClient, Types.PLATINUM.ordinal());
                 break;
             }
             case "GOLD": {
-                setStatusAppUser(appClient, Types.GOLD.ordinal());
+                setStatusAppClient(appClient, Types.GOLD.ordinal());
                 break;
             }
             case "CLASSIC": {
-                setStatusAppUser(appClient, Types.CLASSIC.ordinal());
+                setStatusAppClient(appClient, Types.CLASSIC.ordinal());
                 break;
             }
             default: {
-                setStatusAppUser(appClient, -1);
+                setStatusAppClient(appClient, -1);
                 break;
             }
         }
@@ -66,7 +66,7 @@ public class AppClientService {
         return appClientRepository.save(appClient);
     }
 
-    private void setStatusAppUser(AppClient appClient, int statusAppUser) {
+    private void setStatusAppClient(AppClient appClient, int statusAppUser) {
         appClient.setStatus(statusAppUser);
     }
 

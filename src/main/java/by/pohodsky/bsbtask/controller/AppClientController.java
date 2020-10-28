@@ -10,15 +10,15 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class UserController {
+public class AppClientController {
 
     @Autowired
     AppClientService appClientService;
 
-    @PostMapping("/newUser")
+    @PostMapping("/createAppClient")
     public ResponseEntity createNewAppUser(@RequestBody AppClient appClient) {
 
-        if (appClientService.createNewAppUser(appClient)) {
+        if (appClientService.createNewAppClient(appClient)) {
             return new ResponseEntity(HttpStatus.CREATED);
         } else {
             return new ResponseEntity(HttpStatus.BAD_REQUEST);

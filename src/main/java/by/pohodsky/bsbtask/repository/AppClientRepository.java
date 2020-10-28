@@ -5,10 +5,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface AppClientRepository extends JpaRepository<AppClient, String> {
 
-    AppClient findAppUserById(String id);
+    AppClient findAppClientById(String id);
 
-    AppClient findAppUserByEmail(String email);
+    AppClient findAppClientByEmail(String email);
 
-    AppClient findAppUserByPhoneNumber(String phoneNumber);
+    AppClient findAppClientByPhoneNumber(String phoneNumber);
 
 }

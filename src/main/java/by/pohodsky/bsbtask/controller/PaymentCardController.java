@@ -21,7 +21,7 @@ public class PaymentCardController {
     PaymentCardService paymentCardService;
 
 
-    @GetMapping(params = {"page", "size"}, path = "/phoneNumberList")
+    @GetMapping(params = {"page", "size"}, path = "/findPhoneNumberList")
     public List<String> findPaginated(@RequestParam("page") int page,
                                       @RequestParam("size") int size,
                                       @RequestParam String cardType,
@@ -35,7 +35,7 @@ public class PaymentCardController {
         return phoneNumbers;
     }
 
-    @PostMapping("/newPaymentCard")
+    @PostMapping("/createPaymentCard")
     public ResponseEntity createNewPaymentCard(@RequestBody PaymentCard paymentCard) {
 
         if (paymentCardService.createPaymentCard(paymentCard)) {
