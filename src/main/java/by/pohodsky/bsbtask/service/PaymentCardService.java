@@ -1,6 +1,6 @@
 package by.pohodsky.bsbtask.service;
 
-import by.pohodsky.bsbtask.entity.AppUser;
+import by.pohodsky.bsbtask.entity.AppClient;
 import by.pohodsky.bsbtask.entity.PaymentCard;
 import by.pohodsky.bsbtask.repository.PaymentCardRepository;
 import org.slf4j.Logger;
@@ -20,7 +20,7 @@ public class PaymentCardService {
     PaymentCardRepository paymentCardRepository;
 
     @Autowired
-    AppUserService appUserService;
+    AppClientService appClientService;
 
     public boolean createPaymentCard(PaymentCard paymentCard) {
         logger.info("Create new payment card: {}", paymentCard);
@@ -28,8 +28,8 @@ public class PaymentCardService {
         paymentCard.setType(paymentCard.getType().strip().toUpperCase());
         paymentCard.setCurrency(paymentCard.getCurrency().strip().toUpperCase());
 
-        AppUser appUser = appUserService.updateAppUserStatus(paymentCard.getLinkedAppUserNumberPhone(), paymentCard.getType());
-        paymentCard.setLinkedAppUserNumberPhone(appUser.getPhoneNumber());
+        AppClient appClient = appClientService.updateAppUserStatus(paymentCard.getLinkedAppClientPhoneNumber(), paymentCard.getType());
+        paymentCard.setLinkedAppClientPhoneNumber(appClient.getPhoneNumber());
         paymentCardRepository.save(paymentCard);
         return true;
     }

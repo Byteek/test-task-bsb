@@ -23,5 +23,5 @@ public class PaymentCard {
 
     String type;
 
-    String linkedAppUserNumberPhone;
+    String linkedAppClientPhoneNumber;
 }
