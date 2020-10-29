@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 @Entity
@@ -19,9 +20,9 @@ public class AppUser {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @NotNull(message = "login cannot be null")
+    @NotBlank(message = "login cannot be null")
     private String login;
-
+    @NotBlank
     private String password;
 
     @ManyToOne

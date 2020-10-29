@@ -11,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 @Builder
@@ -25,18 +26,18 @@ public class AppClient {
     @GenericGenerator(name = "system-uuid", strategy = "uuid2")
     String id;
 
-    @NotNull(message = "firstName cannot be null")
+    @NotBlank(message = "firstName cannot be null")
     String firstName;
 
-    @NotNull(message = "lastName cannot be null")
+    @NotBlank(message = "lastName cannot be null")
     String lastName;
 
     String patronymic;
 
-    @NotNull(message = "phoneNumber cannot be null")
+    @NotBlank(message = "phoneNumber cannot be null")
     String phoneNumber;
 
-    @NotNull(message = "email cannot be null")
+    @NotBlank(message = "email cannot be null")
     @Email(regexp = ".*@.*\\..*", message = "is not email")
     String email;
 

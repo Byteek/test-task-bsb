@@ -10,6 +10,7 @@ import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
 
 @Builder
 @Data
@@ -23,11 +24,15 @@ public class PaymentCard {
     @GenericGenerator(name = "system-uuid", strategy = "uuid2")
     String id;
 
+    @NotBlank
     String cardNumber;
 
+    @NotBlank
     String currency;
 
+    @NotBlank
     String type;
 
+    @NotBlank
     String linkedAppClientPhoneNumber;
 }

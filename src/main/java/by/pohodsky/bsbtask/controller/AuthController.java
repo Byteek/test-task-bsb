@@ -1,4 +1,4 @@
-package by.pohodsky.bsbtask.controller.auth;
+package by.pohodsky.bsbtask.controller;
 
 
 import by.pohodsky.bsbtask.entity.AppUser;
