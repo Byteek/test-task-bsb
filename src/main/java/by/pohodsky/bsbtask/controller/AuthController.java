@@ -18,7 +18,7 @@ public class AuthController {
     private AppUserService appUserService;
 
     @ApiOperation(value = "Method for registering a system user",
-            notes = "")
+            notes = "Login and password are needed to access the path /user/**")
     @PostMapping("/register")
     public String registerUser(@RequestParam String login,
                                @RequestParam String password) {
