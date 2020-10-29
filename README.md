@@ -15,6 +15,6 @@ INSERT INTO public.userrole (id, name) VALUES ('0', 'ROLE_USER');
 INSERT INTO public.userrole (id, name) VALUES ('1', 'ROLE_ADMIN');
 ```
 
-3. После этого запустите приложение 
+3. После этого запустите приложение в вашей IDE
 
 Можете переходить по адресу http://localhost:8082/swagger-ui/#/  
