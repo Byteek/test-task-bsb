@@ -37,9 +37,13 @@ public class PaymentCardService {
         if (validateCurrencyAndType(paymentCard)) {
 
             if (paymentCardRepository.findByCardNumber(paymentCard.getCardNumber()) != null) {
+                logger.info("This card exists");
+
                 return false;
             }
             if (appClientService.findAppClientByPhoneNumber(paymentCard.getLinkedAppClientPhoneNumber()) == null) {
+                logger.info("This phone number is not in the database");
+
                 return false;
             }
 
