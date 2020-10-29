@@ -1,4 +1,4 @@
-package by.pohodsky.bsbtask.security;
+package by.pohodsky.bsbtask;
 
 import by.pohodsky.bsbtask.entity.AppUser;
 import by.pohodsky.bsbtask.service.AppUserService;

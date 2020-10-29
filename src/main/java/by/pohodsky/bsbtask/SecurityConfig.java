@@ -1,4 +1,4 @@
-package by.pohodsky.bsbtask.security;
+package by.pohodsky.bsbtask;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -15,7 +15,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private CustomAuthenticationProvider authProvider;
 
     @Autowired
-    public void configAuthentication(AuthenticationManagerBuilder auth) throws Exception {
+    public void configAuthentication(AuthenticationManagerBuilder auth)  {
         auth.authenticationProvider(authProvider);
     }
 
@@ -28,10 +28,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/user/**").hasRole("USER")
                 .and()
                 .csrf()
+                .disable()
+                .headers()
+                .frameOptions()
                 .disable();
-//                .headers()
-//                .frameOptions()
-//                .disable();
     }
 
 }

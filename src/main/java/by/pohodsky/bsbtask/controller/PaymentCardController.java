@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.ArrayList;
 import java.util.List;
 
-@Api( tags = "Payment card controller" )
+@Api(tags = "Payment card controller")
 @RestController
 public class PaymentCardController {
 
@@ -65,7 +65,6 @@ public class PaymentCardController {
             return new ResponseEntity(HttpStatus.BAD_REQUEST);
         }
     }
-
 
 
     private static final String messageInPaymentCardControllerFromFindPaginatedPhoneNumber = "A method that returns a page-by-page list of phone numbers depending on the specified parameters (number of records, page number, card type, currency).";

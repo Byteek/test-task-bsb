@@ -71,7 +71,7 @@ public class AppClientService {
     }
 
     public AppClient findAppClientByPhoneNumber(String linkedAppClientPhoneNumber) {
-       return appClientRepository.findAppClientByPhoneNumber(linkedAppClientPhoneNumber);
+        return appClientRepository.findAppClientByPhoneNumber(linkedAppClientPhoneNumber);
     }
 }
 
