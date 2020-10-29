@@ -9,4 +9,5 @@ public interface PaymentCardRepository extends JpaRepository<PaymentCard, String
 
     Page<PaymentCard> findAllByCurrencyAndType(String currency, String type, Pageable pageable);
 
+    PaymentCard findByCardNumber(String cardNumber);
 }

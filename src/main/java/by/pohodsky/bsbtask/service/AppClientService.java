@@ -70,6 +70,9 @@ public class AppClientService {
         appClient.setStatus(statusAppUser);
     }
 
+    public AppClient findAppClientByPhoneNumber(String linkedAppClientPhoneNumber) {
+       return appClientRepository.findAppClientByPhoneNumber(linkedAppClientPhoneNumber);
+    }
 }
 
 
